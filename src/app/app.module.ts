@@ -1,7 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { RouterModule } from "@angular/router";
+
+
+import { AdminModule } from "app/admin/admin.module";
+import { UserModule } from "app/user/user.module";
+import { CoreModule } from "app/core/core.module";
 
 import { AppComponent } from './app.component';
 
@@ -11,8 +16,13 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule
+   BrowserAnimationsModule,
+    AdminModule,
+    CoreModule,
+    UserModule,
+
+    RouterModule.forRoot([])
+
   ],
   providers: [],
   bootstrap: [AppComponent]
