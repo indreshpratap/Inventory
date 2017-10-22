@@ -1,16 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from "@angular/http";
+import { FormsModule } from "@angular/forms";
 // Material
-import { MatButtonModule, MatSidenavModule, MatCheckboxModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule,
+   MatSidenavModule,
+    MatCheckboxModule,
+     MatToolbarModule,
+     MatTabsModule,
+     MatCardModule, 
+     MatFormFieldModule,
+     MatInputModule
+    } from '@angular/material';
 
 const MODULES = [
   CommonModule,
   HttpModule,
+  FormsModule,
   MatButtonModule,
   MatSidenavModule,
   MatCheckboxModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatTabsModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule
 
 ];
 

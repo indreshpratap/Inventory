@@ -14,3 +14,16 @@
 .example-sidenav {
   padding: 20px;
 }
+
+.login-card {
+  width: 400px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container > * {
+  width: 100%;
+}

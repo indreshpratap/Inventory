@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
 
@@ -9,17 +9,21 @@ import { UserModule } from "app/user/user.module";
 import { CoreModule } from "app/core/core.module";
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from "app/header.component";
 
+import 'rxjs/Rx';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
+    
   ],
   imports: [
     BrowserModule,
-   BrowserAnimationsModule,
-    AdminModule,
+    BrowserAnimationsModule,
+    // AdminModule,
     CoreModule,
-    UserModule,
+    // UserModule,
 
     RouterModule.forRoot([])
 
