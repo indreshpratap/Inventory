@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin() {
-    console.log(this.username, this.password);
-    this.auth.doLogin({ username: this.username, password: this.password })
+    localStorage.removeItem("session_token");
+    this.auth.doLogin({ name: this.username, password: this.password })
       .subscribe(res => {
         if (res.status) {
           this.router.navigate(['']);

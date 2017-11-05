@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { RouterModule } from "@angular/router";
+import { RouterModule, Router } from "@angular/router";
 
 
 
@@ -14,13 +14,7 @@ import 'rxjs/Rx';
 import { AdminModule } from "app/admin/admin.module";
 import { UserModule } from "app/user/user.module";
 import { AuthService } from "app/core/auth.service";
-import { Http, XHRBackend, RequestOptions } from "@angular/http";
-import { HttpAuthFactory } from "app/core/http.factory";
 
-
-export function httpClientFactory(xhrBackend: XHRBackend, requestOptions: RequestOptions): Http {
-  return new HttpAuthFactory(xhrBackend, requestOptions);
-}
 
 @NgModule({
   declarations: [
@@ -37,8 +31,7 @@ export function httpClientFactory(xhrBackend: XHRBackend, requestOptions: Reques
     RouterModule.forRoot(routes)
 
   ],
-  providers: [AuthService,
-    { provide: Http, useFactory: httpClientFactory, deps: [XHRBackend, RequestOptions] }
+  providers: [AuthService
 
   ],
   bootstrap: [AppComponent]

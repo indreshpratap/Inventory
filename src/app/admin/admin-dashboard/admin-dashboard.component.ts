@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from "@angular/http";
+import { environment } from "environments/environment";
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http:Http) { }
 
   ngOnInit() {
+    this.http.get(environment.apiPath+"protected").subscribe(res=> {
+      console.log(res);
+    })
   }
 
 }
