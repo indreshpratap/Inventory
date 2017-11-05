@@ -1,0 +1,16 @@
+<form [formGroup]="form">
+  <div>
+    <input type="text" placeholder="name" formControlName="name" />
+  </div>
+  <div>
+    <input type="text" placeholder="description" formControlName="description" />
+  </div>
+  <div>
+    <input type="text" placeholder="category" formControlName="category" />
+  </div>
+  <div>
+    <input type="number" placeholder="price" formControlName="price" />
+  </div>
+<button (click)="saveProduct()">Save</button>
+
+</form>

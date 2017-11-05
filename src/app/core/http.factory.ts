@@ -10,37 +10,22 @@ export class HttpAuthFactory extends Http {
     super(_backend, _defaultOptions);
   }
 
-  _setCustomHeaders(options?: RequestOptionsArgs):RequestOptionsArgs{
-    if(!options) {
-      options = new RequestOptions({});
-    }
-    if(localStorage.getItem("session_token")) {
-
-      if (!options.headers) {
-
-        options.headers = new Headers();
-
-
-      }
-      options.headers.set("Authorization", localStorage.getItem("session_token"))
-    }
-    return options;
-  }
+ 
 
 
   request(url: string | Request, options?: RequestOptionsArgs): Observable<Response> {
     let token = localStorage.getItem('session_token');
-    console.log("coming to typeof"+url);
+    
     if (typeof url === 'string') { // meaning we have to add the token to the options, not in url
       if (!options) {
         // let's make option object
         options = { headers: new Headers() };
       }
-      options.headers.set('authorization', `${token}`);
+      options.headers.set('authorization', token);
       
     } else {
       // we have to add the token to the url object
-      url.headers.set('authorization', `${token}`);
+      url.headers.set('authorization', token);
     }
       // return super.request(url, options);
     return super.request(url, options).catch(this.catchAuthError());

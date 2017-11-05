@@ -1,8 +1,12 @@
 <mat-toolbar color="primary">
   <span>Enventory</span>
   <mat-toolbar-row>
-    <a mat-button routerLink="/user/dashboard">User Dashboard</a>
-    <a mat-button routerLink="/admin/dashboard">Admin Dashboard</a>
+    <a mat-button routerLink="/user/products">Available Products</a>
+    <ng-container *ngIf="auth.isAdmin">
+      <a mat-button routerLink="/admin/dashboard">Admin Dashboard</a>
+      <a mat-button routerLink="/admin/prod-reg">New Product</a>
+    </ng-container>
+    <a mat-button (click)="doLogout()">Logout</a>
   </mat-toolbar-row>
 </mat-toolbar>
 <router-outlet></router-outlet>

@@ -9,14 +9,21 @@ import { Router } from "@angular/router";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router, private auth: AuthService) { }
+
+  constructor(private router: Router, public auth: AuthService) { }
 
   ngOnInit() {
-    // this.auth.isLoggedIn().subscribe(res => {
-    //   if (!status) {
-    //     this.router.navigate(['login']);
-    //   }
-    // });
+    this.auth.isLoggedIn().subscribe(res => {
+      if (!res) {
+        this.router.navigate(['login']);
+      }
+    });
+  }
+
+  doLogout() {
+    this.auth.doLogout().subscribe(res=> {
+      this.router.navigate(['login']);
+    });
   }
 
 }
